@@ -16,6 +16,12 @@ const routes = [
     component:()=>import('../components/alltime.vue')
   },
 
+  {
+    path:'/login',
+    name:'login',
+    component:()=>import('../components/login.vue')
+  },
+
 
   {
     path: '/about',

@@ -7,26 +7,26 @@
 
         <div class="foot">
             
-              <van-field
-             v-model="name"
+            <van-field
+             v-model="mobile"
              class="model"
-             placeholder="用户名"
+             placeholder="请输入电话号码"
              :rules="[{ required: true, message: '请填写用户名' }]"
-             name="用户名"
             />
+            <span class="yan" @click="huo">获取验证码</span>
              <van-field
-              v-model="pwd"
+              v-model="code"
               class="pwd"
               type="password"
-              placeholder="密码"
+              placeholder="请输入验证码"
              :rules="[{ required: true, message: '请填写密码' }]"
            />
-              <p class="ti"><span>找回密码</span><span @click="qie">注册/验证码登录</span></p>
+              <p class="ti"><span>*未注册的手机号将自动注册</span><span>使用密码登录</span></p>
               <p class="login">
-                <van-button type="danger" >登录</van-button>
+                <van-button type="danger"  @click="login">登录</van-button>
               </p>
         </div>
-
+        
 
     </div>
 </template>
@@ -35,34 +35,71 @@
 export default {
   data() {
     return {
-      name:'',
-      pwd:'',
-
+      mobile:'',
+      code:'',
+      show:false,
     }
   },
 
   created(){
-    this.gitdata()
+    
   },
   methods:{
-   async gitdata(){
-       let res = await this.$axios.post('/smsCode')
-       .then((res)=>{
-         console.log(res)
-       })
-    },
-    qie(){
-      this.$router.push('/login')
-   }
+  async huo(){
+     let mobile = this.mobile
+      console.log(mobile)
+     let  res = await this.$axios.post('/smsCode',{mobile:mobile,sms_type:'login'})
+   
+       console.log(res.data.msg)
+
+       if(res.data.code==200){
+          this.$toast.success(res.data.msg)
+         
+        
+       }else{
+            this.$toast.fail(res.data.msg);
+            return false
+       }
+     },
+
+
+     async login(){
+       let code = this.code
+       let res = await this.$axios.post('/login',{sms_code:code,mobile:this.mobile,type:2,client:1})
+       console.log(res.data.data)
+      this.$router.push('/')
+      
+       if(res.data.code==200){
+          this.$toast.success(res.data.msg)
+         this.$router.push('/')
+        
+       }else{
+            this.$toast.fail(res.data.msg);
+            return false
+       }
+     }
   },
 
-  
+  qie(){
+
+  }
 };
 </script>
 
 <style lang='scss'>
+
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  .van-toast{
+    width: 400px;
+    height: 200px;
+    font-size: 40px
+  }
 .box {
   width: 1024px;
+  position: relative;
 
   .head{
     width: 100%;
@@ -82,10 +119,18 @@ export default {
     height: 600px;
     text-align: center;
     
+    
+    .yan{
+        font-size: 35px;
+        margin-left: 720px;
+        color: red;
+    }
+
+
     .ti{
        height: 100px;
        width: 80%;
-       font-size: 30px;
+       font-size: 40px;
        line-height: 100px;
        margin: 0 auto;
        color: #999999;
@@ -103,16 +148,17 @@ export default {
     .model{
       height: 100px;
       width: 80%;
-      font-size: 30px;
+      font-size: 40px;
       border-bottom: 1px solid #999999;
       line-height: 100px;
       margin: 0 auto;
+      
       
     }
     .pwd{
       height: 100px;
       width: 80%;
-      font-size: 30px;
+      font-size: 40px;
       border-bottom: 1px solid #999999;
        line-height: 100px;
        margin-top: 20px;
@@ -124,10 +170,9 @@ export default {
       height: 150px;
       margin-top: 200px;
       font-size: 55px;
-    
-    
    }
   }
+ 
 }
 
 </style>
