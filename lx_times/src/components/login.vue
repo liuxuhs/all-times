@@ -54,8 +54,6 @@ export default {
 
        if(res.data.code==200){
           this.$toast.success(res.data.msg)
-         
-        
        }else{
             this.$toast.fail(res.data.msg);
             return false
@@ -67,7 +65,7 @@ export default {
        let code = this.code
        let res = await this.$axios.post('/login',{sms_code:code,mobile:this.mobile,type:2,client:1})
        console.log(res.data.data)
-      this.$router.push('/')
+     
       
        if(res.data.code==200){
           this.$toast.success(res.data.msg)
