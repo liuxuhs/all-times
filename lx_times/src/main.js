@@ -5,7 +5,7 @@ import store from './store'
 
 import {baseApi} from '@/config'
 
-import 'lib-flexible/flexible'
+import "lib-flexible/flexible"
 
 import '@/plugins/vant'
 
