@@ -1,7 +1,7 @@
 .<template>
     <div class="box">
         <div class="head">
-            
+            <img src="@/assets/5.png" alt=""/>
         </div>  
         <div class="cont"></div>
 
@@ -21,7 +21,7 @@
               placeholder="请输入验证码"
              :rules="[{ required: true, message: '请填写密码' }]"
            />
-              <p class="ti"><span>*未注册的手机号将自动注册</span><span>使用密码登录</span></p>
+              <p class="ti"><span>*未注册的手机号将自动注册</span><span  @click="qie">使用密码登录</span></p>
               <p class="login">
                 <van-button type="danger"  @click="login">登录</van-button>
               </p>
@@ -75,12 +75,13 @@ export default {
             this.$toast.fail(res.data.msg);
             return false
        }
-     }
+     },
+    qie(){
+      this.$router.push('/alltime')
+   }
   },
 
-  qie(){
-
-  }
+  
 };
 </script>
 
@@ -102,6 +103,14 @@ export default {
     width: 100%;
     height: 740px;
     background-color: aqua;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+
+
+
   }
   .cont{
     width: 100%;
