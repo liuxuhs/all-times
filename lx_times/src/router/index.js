@@ -19,9 +19,24 @@ const routes = [
   },
 
   {
+    path:'/setpwd',
+    name:'setpwd',
+    component:()=>import('../components/setpwd.vue'),
+    
+  },
+
+  {
+    path:'/pwd',
+    name:'pwd',
+    component:()=>import('../components/pwd.vue'),
+    
+  },
+
+  {
     path:'/index',
     name:'index',
     component:()=>import('../views/index.vue'),
+    redirect:'/my',
     children:[
       {
         path: '/Hone',
@@ -39,7 +54,14 @@ const routes = [
         path: '/lists',
         name: 'lists',
         component: ()=>import('../views/lists')
-       }
+       },
+
+       {
+        path: '/my',
+        name: 'my',
+        component: ()=>import('../views/my')
+       },
+
 
     ]
   },

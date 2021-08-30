@@ -1,10 +1,6 @@
 .<template>
-    <div class="box">
-        <div class="head">
-            <img src="@/assets/5.png" alt=""/>
-        </div>  
-        <div class="cont"></div>
 
+    <div>
         <div class="foot">
             
             <van-field
@@ -13,7 +9,7 @@
              placeholder="请输入电话号码"
              :rules="[{ required: true, message: '请填写用户名' }]"
             />
-            <span class="yan" @click="huo">获取验证码</span>
+            
              <van-field
               v-model="code"
               class="pwd"
@@ -21,116 +17,82 @@
               placeholder="请输入验证码"
              :rules="[{ required: true, message: '请填写密码' }]"
            />
-              <p class="ti"><span>*未注册的手机号将自动注册</span><span  @click="qie">使用密码登录</span></p>
+              <van-field
+             v-model="password"
+             class="model"
+             placeholder="请输入密码"
+             :rules="[{ required: true, message: '请填写密码' }]"
+            />
+              
               <p class="login">
-                <van-button type="danger"  @click="login">登录</van-button>
+                <van-button type="danger" @click="defind">确定</van-button>
               </p>
+          <span class="yan" @click="huo" v-show="show">{{text}}</span>
+          
+
         </div>
-        
 
     </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      mobile:'',
-      code:'',
-      show:false,
-    }
-  },
+    data(){
+        return{
+            mobile:'',
+            code:'',
+            password:'',
+            show:true,
+            text:'获取验证码'
+        }
+    },
 
-  created(){
-    
-  },
-  methods:{
-  async huo(){
-     let mobile = this.mobile
+    methods:{
+     async  huo(){
+    var reg = /^1[3-9]\d{9}$/
+    if(!reg.test(this.mobile)){
+        this.$toast.fail('手机格式不对')
+        return false
+    }
+    var time = 60;
+    var times = setInterval(()=>{
+        this.text = `还有${time}后结束`
+        time--
+        if(time<=0){
+            clearInterval(times)
+            this.text="获取验证码"
+        }
+
+    },1000)
+
+      let mobile = this.mobile
       console.log(mobile)
      let  res = await this.$axios.post('/smsCode',{mobile:mobile,sms_type:'login'})
-   
        console.log(res.data.msg)
+    },
 
-       if(res.data.code==200){
-          this.$toast.success(res.data.msg)
-       }else{
-            this.$toast.fail(res.data.msg);
-            return false
-       }
-     },
-
-
-     async login(){
-       let code = this.code
-       let res = await this.$axios.post('/login',{sms_code:code,mobile:this.mobile,type:2,client:1})
-       console.log(res.data.data)
-     
-      
-       if(res.data.code==200){
-          this.$toast.success(res.data.msg)
-         this.$router.push('/')
-        
-       }else{
-            this.$toast.fail(res.data.msg);
-            return false
-       }
-     },
-    qie(){
-      this.$router.push('/alltime')
-   }
-  },
-
-  
-};
+    async defind(){
+        let res = await this.$axios.post('/password',{mobile:this.mobile,sms_code:this.code,password:this.password})
+        console.log(res.data)
+    }
+ }
+}
 </script>
 
 <style lang='scss'>
-
-  *{
-    margin: 0px;
-    padding: 0px;
-  }
-  .van-toast{
-    width: 400px;
-    height: 200px;
-    font-size: 40px
-  }
-.box {
-  width: 1024px;
-  position: relative;
-
-  .head{
-    width: 100%;
-    height: 740px;
-    background-color: aqua;
-
-    img{
-      width: 100%;
-      height: 100%;
-    }
-
-
-
-  }
-  .cont{
-    width: 100%;
-    height: 70px;
-    background-color:ghostwhite;;
-    border-radius: 10px;
-    margin-bottom: 123px;
-    
-  }
-  .foot{
+.foot{
     width: 100%;
     height: 600px;
     text-align: center;
-    
-    
+    margin-top: 100px;
+    position: relative;
     .yan{
+        position: absolute;
         font-size: 35px;
-        margin-left: 720px;
         color: red;
+        top: 16px;
+        right: 100px;
+
     }
 
 
@@ -179,7 +141,4 @@ export default {
       font-size: 55px;
    }
   }
- 
-}
-
 </style>
