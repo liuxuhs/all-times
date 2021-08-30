@@ -22,6 +22,7 @@ const routes = [
     path:'/index',
     name:'index',
     component:()=>import('../views/index.vue'),
+    redireck:'/Home',
     children:[
       {
         path: '/Hone',

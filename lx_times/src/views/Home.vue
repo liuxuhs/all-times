@@ -21,7 +21,13 @@
          </van-swipe>
       </div>
     <div class="nav">
-
+        <van-card
+  num="2"
+  price="2.00"
+  desc="描述信息"
+  title="商品标题"
+  thumb="https://img01.yzcdn.cn/vant/ipad.jpeg"
+/>
     </div>
     <div class="tou">
      <p class="le"> <span class="l">|</span>资深讲师</p>
@@ -132,13 +138,12 @@ export default {
   }
 
     .home{
-      width: 1024px;
+      width: 100%;
       margin-bottom:100px;
 
     .head{
       width: 100%;
       height: 130px;
-      background-color: aqua;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -147,7 +152,7 @@ export default {
       .left{
         width: 100px;
         height: 100%;
-        background-color: aquamarine;
+        
       }
       .cont{
         width: 800px;
@@ -160,6 +165,7 @@ export default {
           border: none;
           font-size: 40px;
           padding: 0 6px;
+          border: 1px solid #cccccc;
         }
 
       }
@@ -167,7 +173,7 @@ export default {
       .right{
         width: 100px;
         height: 100%;
-        background-color: antiquewhite;
+       
       }
 
     }

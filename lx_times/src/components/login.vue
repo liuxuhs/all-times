@@ -69,7 +69,7 @@ export default {
       
        if(res.data.code==200){
           this.$toast.success(res.data.msg)
-         this.$router.push('/')
+         this.$router.push('/index')
         
        }else{
             this.$toast.fail(res.data.msg);
@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style lang='scss'>
+<style scoped lang='scss'>
 
   *{
     margin: 0px;
@@ -96,9 +96,8 @@ export default {
     font-size: 40px
   }
 .box {
-  width: 1024px;
+  width: 750px;
   position: relative;
-
   .head{
     width: 100%;
     height: 740px;
