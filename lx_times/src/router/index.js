@@ -33,6 +33,13 @@ const routes = [
   },
 
   {
+    path:'/sign',
+    name:'sign',
+    component:()=>import('../components/sign.vue'),
+    
+  },
+
+  {
     path:'/index',
     name:'index',
     component:()=>import('../views/index.vue'),

@@ -87,7 +87,7 @@
 
 <script>
 
-
+import {recommend} from '@/http/api.js'
 export default {
   data(){
     return{
@@ -105,14 +105,12 @@ export default {
       },
      methods:{
        async gitbanner(){
-         let res = await this.$axios.get('/recommend/appIndex')
+         let res = await recommend()
          console.log(res.data.data[1].list)
          this.data=res.data.data[0].list
          this.list=res.data.data[1].list
         },
 
-
-     
     },
 
     

@@ -1,15 +1,13 @@
 .<template>
-
-    
-
     <div class="box">
         <div class="head">
             <img src="@/assets/2.png" alt="">
 
             <div class="box-s">
                 <img src="@/assets/3.png" alt="">
-                <span @click="log">登录/注册</span>
+                <span @click="log">登录/注册</span> 
             </div>  
+
         </div>
         <div class="nav">
                 <div class="left">
@@ -38,12 +36,9 @@
           <van-cell title="消息中心" is-link style="margin-top:30px"/>
           <van-cell title="地址管理" is-link/>
           <van-cell title="关于我们" is-link/>
-          <van-cell title="意见反馈" is-link/>
+          <van-cell title="签到" is-link @click="qian"/>
           <van-cell title="设置" is-link  @click="qie"/>
          </van-cell-group>
-
-       
-
 
         </div>
     </div>
@@ -53,10 +48,11 @@
 </template>
 
 <script>
+import {data} from '@/http/api.js'
 export default {
     data(){
         return{
-            
+            newdate:''
         }
     },
 
@@ -67,6 +63,14 @@ export default {
 
         qie(){
             this.$router.push('/setpwd')
+        },
+
+      async qian(){       
+        //   this.newdate = new Date().toLocaleDateString()  //   console.log(this.newdate)
+           let date = "2021-08-31"
+          let res = await data({date:date, point: 1})
+          console.log(res.data)
+
         }
     }
 }
@@ -94,8 +98,8 @@ export default {
            }
 
            .box-s{
-               width: 1.67333rem;
-               height: 1.67333rem;
+               width: 4.67333rem;
+               height: 4.67333rem;
                border-radius: 50%;
                position: absolute;
                top: 25%;
@@ -108,7 +112,7 @@ export default {
                span{
                    margin-top: 40px;
                    color: whitesmoke;
-                   font-size: 0.35333rem;
+                   font-size: 1.05333rem;
                }
            }
        } 
@@ -127,19 +131,19 @@ export default {
            .top{
                margin-top: 20px;
                text-align: center;
-               font-size: 0.54rem;
+               font-size: 1.54rem;
                color: red;
            }
            .top-s{
                 margin-top: 20px;
                text-align: center;
-               font-size: 0.54rem;
+               font-size: 1.54rem;
                color:greenyellow;
            }
            .bot{
                 margin-top: 20px;
                text-align: center;
-               font-size: 0.44rem;
+               font-size: 1.44rem;
                color: #999999;
 
             }

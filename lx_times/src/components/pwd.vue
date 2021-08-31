@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import {password,smsCode} from '@/http/api.js'
 export default {
     data(){
         return{
@@ -67,12 +68,12 @@ export default {
 
       let mobile = this.mobile
       console.log(mobile)
-     let  res = await this.$axios.post('/smsCode',{mobile:mobile,sms_type:'login'})
+     let  res = await smsCode({mobile:mobile,sms_type:'login'})
        console.log(res.data.msg)
     },
 
     async defind(){
-        let res = await this.$axios.post('/password',{mobile:this.mobile,sms_code:this.code,password:this.password})
+        let res = await password({mobile:this.mobile,sms_code:this.code,password:this.password})
         console.log(res.data)
     }
  }
