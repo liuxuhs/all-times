@@ -33,6 +33,26 @@ const routes = [
   },
 
   {
+    path:'/sign',
+    name:'sign',
+    component:()=>import('../components/sign.vue'),
+    
+  },
+  {
+    path:'/teachlist',
+    name:'teachlist',
+    component:()=>import('../components/teachlist.vue'),
+    
+  },
+
+  {
+    path:'/datali',
+    name:'datali',
+    component:()=>import('../components/datali.vue'),
+    
+  },
+
+  {
     path:'/index',
     name:'index',
     component:()=>import('../views/index.vue'),

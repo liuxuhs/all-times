@@ -30,12 +30,13 @@
 </template>
 
 <script>
+import {login} from '@/http/api'
 export default {
   data() {
     return {
       model:'',
       password:'',
-
+      data:''
     }
   },
 
@@ -43,9 +44,11 @@ export default {
   methods:{
    async login(){
      console.log(this.password);
-       let res = await this.$axios.post('/login',{mobile:this.model,type:1,client:'1',password:this.password})
+       let res = await login({mobile:this.model,type:1,client:'1',password:this.password})
+      console.log(res.data.data.remember_token)
+        let token = res.data.data.remember_token
+        let mobile =this.model
       console.log(res)
-
         if(res.data.code==200){
           this.$toast.success(res.data.msg)
           this.$router.push('/index')
@@ -53,6 +56,10 @@ export default {
             this.$toast.fail(res.data.msg);
             return false
        }
+
+
+       this.$store.commit('add',token)
+       this.$store.commit('addo',mobile)
     },
     qie(){
       this.$router.push('/login')

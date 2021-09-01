@@ -17,9 +17,13 @@ export default {
 }
 </script>
     
-<style> 
-  .box-s{
-        width: 1024px;
+<style lang='scss'> 
+ .box{
+     width: 375px;
+
+      .box-s{
+        width: 100%;
         margin-bottom: 40px;
     }
+ }
 </style>

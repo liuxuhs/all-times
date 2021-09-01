@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import {smsCode,login} from '@/http/api'
 export default {
   data() {
     return {
@@ -48,8 +49,7 @@ export default {
   async huo(){
      let mobile = this.mobile
       console.log(mobile)
-     let  res = await this.$axios.post('/smsCode',{mobile:mobile,sms_type:'login'})
-   
+     let  res = await smsCode({mobile:mobile,sms_type:'login'})
        console.log(res.data.msg)
 
        if(res.data.code==200){
@@ -63,9 +63,11 @@ export default {
 
      async login(){
        let code = this.code
-       let res = await this.$axios.post('/login',{sms_code:code,mobile:this.mobile,type:2,client:1})
+       let res = await login({sms_code:code,mobile:this.mobile,type:2,client:1})
        console.log(res.data.data)
-     
+       let token = res.data.data.remember_token
+       let mobile =this.model
+
       
        if(res.data.code==200){
           this.$toast.success(res.data.msg)

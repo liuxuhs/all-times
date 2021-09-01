@@ -5,11 +5,11 @@ import store from './store'
 
 import {baseApi} from '@/config'
 
-import 'lib-flexible/flexible.js'
+import 'lib-flexible/flexible'
 
 import '@/plugins/vant'
 
-import axios from "@/utils/request"
+import axios from "axios"
 Vue.prototype.$axios=axios
 
 console.log(baseApi)

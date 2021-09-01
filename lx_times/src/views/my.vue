@@ -1,15 +1,13 @@
 .<template>
-
-    
-
     <div class="box">
         <div class="head">
             <img src="@/assets/2.png" alt="">
 
             <div class="box-s">
                 <img src="@/assets/3.png" alt="">
-                <span @click="log">登录/注册</span>
+                <span @click="log">登录/注册</span> 
             </div>  
+
         </div>
         <div class="nav">
                 <div class="left">
@@ -38,12 +36,9 @@
           <van-cell title="消息中心" is-link style="margin-top:30px"/>
           <van-cell title="地址管理" is-link/>
           <van-cell title="关于我们" is-link/>
-          <van-cell title="意见反馈" is-link/>
+          <van-cell title="签到" is-link @click="qian"/>
           <van-cell title="设置" is-link  @click="qie"/>
          </van-cell-group>
-
-       
-
 
         </div>
     </div>
@@ -53,10 +48,11 @@
 </template>
 
 <script>
+import {data} from '@/http/api.js'
 export default {
     data(){
         return{
-            
+            newdate:''
         }
     },
 
@@ -67,6 +63,15 @@ export default {
 
         qie(){
             this.$router.push('/setpwd')
+        },
+
+      async qian(){       
+        //   this.newdate = new Date().toLocaleDateString()  //   console.log(this.newdate)
+           let date = "2021-09-01"
+          let res = await data({date:date, point: 1})
+          console.log(res.data)
+          this.$router.push('/sign')
+
         }
     }
 }
@@ -80,12 +85,12 @@ export default {
     }
 
     .box{
-        width: 100%;
+        width: 375px;
         margin-bottom: 200px;
     
        .head{
            width: 100%;
-           height: 550px;
+           height: 250px;
            position: relative;
 
            img{
@@ -108,7 +113,7 @@ export default {
                span{
                    margin-top: 40px;
                    color: whitesmoke;
-                   font-size: 0.35333rem;
+                   font-size: 0.15333rem;
                }
            }
        } 
@@ -155,25 +160,7 @@ export default {
             background-color: #f7f8fa;
         }
 
-          .van-cell{
-              width: 100%;
-              height: 100px;
-              font-size: 40px;
-              
-              
-              .van-cell__title, .van-cell__value{
-                  margin-top: 30px;
-              }
-
-              .van-icon-arrow{
-                  font-size: 40px;
-                  margin-top: 30px;
-              }
-
-              .two{
-                  margin-top: 40px;
-              }
-          }
+    
       }
     
     }
