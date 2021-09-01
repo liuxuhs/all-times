@@ -5,5 +5,6 @@ module.exports={
     datas:'/user/integral/signRecord',
     password:'/password',
     recommend:'/recommend/appIndex',
-    teacher:'/teacher/search/attrs'
+    teacher:'/teacher/search/attrs',
+    ri:'/user/integral/signRecord',
 }

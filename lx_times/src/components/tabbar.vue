@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-.van-tabbar-item__icon {
+/* .van-tabbar-item__icon {
     font-size: 60px;
 }
 .van-tabbar--fixed{
@@ -33,5 +33,5 @@ export default {
 
 .van-tabbar-item{
     font-size: 40px;
-}
+} */
 </style>

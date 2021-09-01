@@ -67,9 +67,10 @@ export default {
 
       async qian(){       
         //   this.newdate = new Date().toLocaleDateString()  //   console.log(this.newdate)
-           let date = "2021-08-31"
+           let date = "2021-09-01"
           let res = await data({date:date, point: 1})
           console.log(res.data)
+          this.$router.push('/sign')
 
         }
     }
@@ -84,12 +85,12 @@ export default {
     }
 
     .box{
-        width: 100%;
+        width: 375px;
         margin-bottom: 200px;
     
        .head{
            width: 100%;
-           height: 550px;
+           height: 250px;
            position: relative;
 
            img{
@@ -98,8 +99,8 @@ export default {
            }
 
            .box-s{
-               width: 4.67333rem;
-               height: 4.67333rem;
+               width: 1.67333rem;
+               height: 1.67333rem;
                border-radius: 50%;
                position: absolute;
                top: 25%;
@@ -112,7 +113,7 @@ export default {
                span{
                    margin-top: 40px;
                    color: whitesmoke;
-                   font-size: 1.05333rem;
+                   font-size: 0.15333rem;
                }
            }
        } 
@@ -131,19 +132,19 @@ export default {
            .top{
                margin-top: 20px;
                text-align: center;
-               font-size: 1.54rem;
+               font-size: 0.54rem;
                color: red;
            }
            .top-s{
                 margin-top: 20px;
                text-align: center;
-               font-size: 1.54rem;
+               font-size: 0.54rem;
                color:greenyellow;
            }
            .bot{
                 margin-top: 20px;
                text-align: center;
-               font-size: 1.44rem;
+               font-size: 0.44rem;
                color: #999999;
 
             }
@@ -159,25 +160,7 @@ export default {
             background-color: #f7f8fa;
         }
 
-          .van-cell{
-              width: 100%;
-              height: 100px;
-              font-size: 40px;
-              
-              
-              .van-cell__title, .van-cell__value{
-                  margin-top: 30px;
-              }
-
-              .van-icon-arrow{
-                  font-size: 40px;
-                  margin-top: 30px;
-              }
-
-              .two{
-                  margin-top: 40px;
-              }
-          }
+    
       }
     
     }

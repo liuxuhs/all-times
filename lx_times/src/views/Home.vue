@@ -130,12 +130,12 @@ export default {
   }
 
     .home{
-      width: 1024px;
+      width: 375px;
       margin-bottom:100px;
 
     .head{
-      width: 100%;
-      height: 130px;
+      width: 375px;
+      height: 50px;
       background-color: aqua;
       display: flex;
       align-items: center;
@@ -149,15 +149,14 @@ export default {
       }
       .cont{
         width: 800px;
-        height: 85px;
+        height: 40px;
 
         .search{
           width: 100%;
           height: 100%;
           border-radius:50px; 
           border: none;
-          font-size: 40px;
-          padding: 0 6px;
+          font-size: 15px;
         }
 
       }
@@ -176,11 +175,11 @@ export default {
     .my-swipe .van-swipe-item {
     color: #fff;
     font-size: 100px;
-    line-height: 500px;
+    line-height: 200px;
     text-align: center;
     background-color: #39a9ed;
     width: 100%;
-    height: 500px;
+    height: 200px;
   }
     }
 
@@ -192,25 +191,25 @@ export default {
 
   .tou{
     width: 100%;
-    height: 200px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     
 
       .le{
-        font-size: 50px;
+        font-size: 20px;
         margin-left: 10px;
       }
     .l{
-      font-size: 50px;
+      font-size: 20px;
       color: red;
        margin-left: 10px;
     }  
 
     
     .r{
-      font-size: 50px;
+      font-size: 20px;
     }  
 
   }
@@ -229,18 +228,18 @@ export default {
 
 
       .le{
-        font-size: 50px;
+        font-size: 20px;
         margin-left: 10px;
       }
     .l{
-      font-size: 50px;
+      font-size: 20px;
       color: red;
        margin-left: 10px;
     }  
 
     
     .r{
-      font-size: 50px;
+      font-size: 20px;
     }  
 
   }
@@ -249,7 +248,7 @@ export default {
     
     .teach{
       width: 100%;
-      height: 200px;
+      height: 100px;
       margin-top: 60px;
       
       
@@ -278,31 +277,31 @@ export default {
           margin-left:20px; 
 
          .top{
-           font-size: 40px;
+           font-size: 20px;
            margin-top:20px; 
           }
         .but{
-          margin-top: 85px;
+          margin-top: 35px;
           display: flex;
           justify-content: space-between;
           .left{
-            font-size: 30px
+            font-size: 20px
           }
           .right{
-            font-size: 30px
+            font-size: 20px
           }
          }
 
 
 
           .o{
-            font-size: 35px;
+            font-size: 25px;
             margin-left: 20px;
-            margin-top:30px;
+            margin-top:10px;
           }
           .t{
-            font-size: 35px;
-            margin-top:40px; 
+            font-size: 25px;
+            margin-top:20px; 
             margin-left: 20px;
             color: #cccccc;
             
@@ -312,6 +311,6 @@ export default {
     }
 
 
-    }
+}
 </style>
 
