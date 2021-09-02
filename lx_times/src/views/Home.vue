@@ -136,22 +136,12 @@ export default {
   }
 
     .home{
-<<<<<<< HEAD
       width: 100%;
       margin-bottom:100px;
 
     .head{
       width: 100%;
       height: 130px;
-=======
-      width: 375px;
-      margin-bottom:100px;
-
-    .head{
-      width: 375px;
-      height: 50px;
-      background-color: aqua;
->>>>>>> dev
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -171,13 +161,9 @@ export default {
           height: 100%;
           border-radius:50px; 
           border: none;
-<<<<<<< HEAD
           font-size: 40px;
           padding: 0 6px;
           border: 1px solid #cccccc;
-=======
-          font-size: 15px;
->>>>>>> dev
         }
 
       }

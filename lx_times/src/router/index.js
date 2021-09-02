@@ -53,6 +53,13 @@ const routes = [
   },
 
   {
+    path:'/news',
+    name:'news',
+    component:()=>import('../components/news.vue'),
+    
+  },
+
+  {
     path:'/index',
     name:'index',
     component:()=>import('../views/index.vue'),

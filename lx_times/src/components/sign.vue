@@ -107,7 +107,6 @@ export default {
       const year=tady.getFullYear();
       const month_new=tady.getMonth()+1;
       const date_new=tady.getDate();
-      
       if(month==month_new&&date_new==date){
           day.bottomInfo="+1";
           day.text='√'

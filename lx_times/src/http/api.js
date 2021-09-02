@@ -51,18 +51,37 @@ export function teacher(arg){
     })
 }
 
-// export function teachers(arg){
-//     return service({
-//         url:request_url.teachers,
-//         data:arg,
-//         method:'get'
-//     })
-// }
-
 export function ri(arg){
     return service({
         url:request_url.recommend,
         data:arg,
         method:'get'
+    })
+}
+
+export function infor(arg){
+    return service({
+        url:request_url.infor,
+        data:arg,
+        method:'get'
+
+    })
+}
+
+export function index(arg){
+    return service({
+        url:request_url.index,
+        data:arg,
+        method:'post'
+
+    })
+}
+
+export function detail(arg){
+    return service({
+        url:request_url.detail,
+        data:arg,
+        method:'post'
+
     })
 }

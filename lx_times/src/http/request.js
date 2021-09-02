@@ -7,4 +7,7 @@ module.exports={
     recommend:'/recommend/appIndex',
     teacher:'/teacher/search/attrs',
     ri:'/user/integral/signRecord',
+    infor:'/information/classify',
+    index:"/information/index",
+    detail:"/information/detail"
 }
